@@ -16,3 +16,17 @@ set number
 set tabstop=2
 set shiftwidth=2
 set expandtab
+set cursorline
+set cmdheight=3
+set showmatch
+" 対応括弧に<と>のペアを追加
+set matchpairs& matchpairs+=<:>
+".swapファイルを作らない"
+set noswapfile
+" :e などでファイルを開く際にフォルダが存在しない場合は自動作成
+function! s:mkdir(dir, force)
+  if !isdirectory(a:dir) && (a:force ||
+        \ input(printf('"%s" does not exist. Create? [y/N]', a:dir)) =~? '^y\%[es]$')
+    call mkdir(iconv(a:dir, &encoding, &termencoding), 'p')
+  endif
+endfunction
