@@ -30,3 +30,19 @@ function! s:mkdir(dir, force)
     call mkdir(iconv(a:dir, &encoding, &termencoding), 'p')
   endif
 endfunction
+
+" NeoBundleの設定
+filetype plugin indent off
+
+if has('vim_starting')
+  set runtimepath+=~/.vim/bundle/neobundle.vim
+  call neobundle#rc(expand('~/.vim/bundle'))
+endif 
+
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+# 以下は必要に応じて追加
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neosnippet.vim'
+
+filetype plugin indent on
