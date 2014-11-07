@@ -12,4 +12,7 @@ au BufWrite /private/tmp/crontab.* set nowritebackup
 au BufWrite /private/etc/pw.* set nowritebackup
 colorscheme molokai
 syntax on
-set nu
+set number
+set tabstop=2
+set shiftwidth=2
+set expandtab
